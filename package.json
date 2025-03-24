@@ -1,0 +1,111 @@
+{
+  "name": "vscode-jira-commit-message",
+  "displayName": "JIRA Commit Message",
+  "description": "Automatically append JIRA task ID to your commit messages",
+  "version": "1.0.0",
+  "publisher": "joosthart",
+  "author": "joosthart",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "main": "out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "jira-commit-message.insertJiraId",
+        "title": "Insert JIRA ID into commit message"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "jira-commit-message.insertJiraId",
+          "when": "scmProvider == git",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "JIRA Commit Message",
+      "properties": {
+        "jiraCommitMessage.autoDetectProjectKey": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically detect JIRA project key"
+        },
+        "jiraCommitMessage.jiraProjectKeys": {
+          "type": "array",
+          "default": [],
+          "description": "List of JIRA project keys (uppercase)"
+        },
+        "jiraCommitMessage.isConventionalCommit": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use conventional commit format"
+        },
+        "jiraCommitMessage.messageWrapperType": {
+          "type": "string",
+          "enum": [
+            "none",
+            "parentheses",
+            "brackets",
+            "curly_brackets",
+            "backslash"
+          ],
+          "default": "none",
+          "description": "Wrapper type for JIRA issue"
+        },
+        "jiraCommitMessage.messagePrefixType": {
+          "type": "string",
+          "enum": [
+            "none",
+            "hash",
+            "colon",
+            "dash"
+          ],
+          "default": "none",
+          "description": "Prefix type for JIRA issue"
+        },
+        "jiraCommitMessage.messageInfixType": {
+          "type": "string",
+          "enum": [
+            "none",
+            "colon",
+            "colon_space",
+            "dash_space"
+          ],
+          "default": "none",
+          "description": "Infix type for JIRA issue"
+        },
+        "jiraCommitMessage.prependJiraIssueOnActionClick": {
+          "type": "boolean",
+          "default": false,
+          "description": "Prepend JIRA issue to existing commit message on click"
+        }
+      }
+    }
+  },
+  "activationEvents": [
+    "onCommand:jira-commit-message.insertJiraId",
+    "onEvent:onDidOpenRepository"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joosthart/vscode-jira-commit-message-plugin.git"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.11",
+    "@types/vscode": "1.96.0",
+    "typescript": "^5.8.2"
+  }
+}
