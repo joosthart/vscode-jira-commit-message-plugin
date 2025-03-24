@@ -1,6 +1,6 @@
 {
   "name": "vscode-jira-commit-message",
-  "displayName": "JIRA Commit Message",
+  "displayName": "Auto JIRA ID in Git Commits",
   "description": "Automatically append JIRA task ID to your commit messages",
   "version": "1.0.0",
   "publisher": "joosthart",
