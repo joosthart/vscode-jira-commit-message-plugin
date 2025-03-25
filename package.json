@@ -48,7 +48,7 @@
         },
         "jiraCommitMessage.isConventionalCommit": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Use conventional commit format"
         },
         "jiraCommitMessage.messageWrapperType": {
@@ -60,7 +60,7 @@
             "curly_brackets",
             "backslash"
           ],
-          "default": "none",
+          "default": "parentheses",
           "description": "Wrapper type for JIRA issue"
         },
         "jiraCommitMessage.messagePrefixType": {
@@ -71,7 +71,7 @@
             "colon",
             "dash"
           ],
-          "default": "none",
+          "default": "colon",
           "description": "Prefix type for JIRA issue"
         },
         "jiraCommitMessage.messageInfixType": {
