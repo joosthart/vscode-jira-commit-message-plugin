@@ -1,6 +1,6 @@
 # JIRA Commit Message for VSCode/Cursor
 
-![JIRA Commit Message Icon](images/icon.png)
+<img src="images/icon.png" width="128" height="128" alt="JIRA Commit Message Icon">
 
 This extension helps you by automatically appending JIRA task ID to your commit messages. It's a port of the popular [JetBrains JIRA Commit Message plugin](https://github.com/nemwiz/jira-commit-message-intellij-plugin).
 
