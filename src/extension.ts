@@ -48,6 +48,14 @@ export function activate(context: vscode.ExtensionContext) {
     
     const gitService = new GitService();
     const jiraCommitMessageService = new JiraCommitMessageService();
+    
+    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+    statusBarItem.text = "$(tag) JIRA";
+    statusBarItem.tooltip = "Insert JIRA ID into commit message";
+    statusBarItem.command = 'jira-commit-message.insertJiraId';
+    statusBarItem.show();
+    
+    context.subscriptions.push(statusBarItem);
 
     // Register the command to insert JIRA ID
     const insertCommand = vscode.commands.registerCommand('jira-commit-message.insertJiraId', async () => {

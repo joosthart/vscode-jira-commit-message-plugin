@@ -21,11 +21,22 @@
     "commands": [
       {
         "command": "jira-commit-message.insertJiraId",
-        "title": "Insert JIRA ID into commit message"
+        "title": "Insert JIRA ID into commit message",
+        "icon": {
+          "light": "images/jira-light.svg",
+          "dark": "images/jira-dark.svg"
+        }
       }
     ],
     "menus": {
       "scm/title": [
+        {
+          "command": "jira-commit-message.insertJiraId",
+          "when": "scmProvider == git",
+          "group": "navigation@1"
+        }
+      ],
+      "editor/title": [
         {
           "command": "jira-commit-message.insertJiraId",
           "when": "scmProvider == git",
