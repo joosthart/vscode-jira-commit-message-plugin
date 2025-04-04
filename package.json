@@ -35,13 +35,6 @@
           "when": "scmProvider == git",
           "group": "navigation@1"
         }
-      ],
-      "editor/title": [
-        {
-          "command": "jira-commit-message.insertJiraId",
-          "when": "scmProvider == git",
-          "group": "navigation"
-        }
       ]
     },
     "configuration": {
